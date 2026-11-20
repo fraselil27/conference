@@ -6,10 +6,29 @@ public class ReadFile
 {
   public static void main(String[] args) 
   {
-        File myObj = new File("companies.csv");
+        File myObj1 = new File("companies.csv");
 
         // try-with-resources: Scanner will be closed automatically
-        try (Scanner myReader = new Scanner(myObj)) 
+        try (Scanner myReader = new Scanner(myObj1)) 
+        {
+            while (myReader.hasNextLine()) 
+            {     
+            String data = myReader.nextLine();
+            System.out.println(data);
+            }
+        } 
+
+        catch (FileNotFoundException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+        File myObj2 = new File("names.csv");
+
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(myObj2)) 
         {
             while (myReader.hasNextLine()) 
             {     
@@ -25,3 +44,23 @@ public class ReadFile
         }
   }
 }
+
+/*
+try(Scanner myReader = new Scanner(myOnj))
+{
+    while(myReader.hasNextLine())
+    {
+        String data = myReader.nextLine();
+        String[] arrAttend = data.split(","); //split only on commas inside the string
+        this will give an array of strings
+        int coID = Integer.parseInt(arrAttend[coID])
+        system.out.println(data)
+        }
+        }
+        catch(FileNotFoundException e)
+        {
+        System.out.porintln(error occurred)}
+    }
+    e.printStackTrace();
+}
+*/
