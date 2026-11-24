@@ -6,33 +6,25 @@ import java.util.Scanner;
 
 public class NewAttendees
 {
-    Scanner scan = new Scanner(System.in);
-    public static void main(String[] args)
+    public int addAttendees(String makeChanges)
     {
+        Scanner scan = new Scanner(System.in);
         String makeChanges = "no";
         System.out.println("Would you like to add attendees to the guest list? Type 'yes' if so and 'no' if not.");
         makeChanges = scan.nextLine();
-
+        int numNewGuests = 0;
+        String nemAttendees[];
         if(makeChanges.equals("yes"))
         {
-            int numGuests = 0;
+            String buffer;
             System.out.println("How many new guests would you like to add?");
-            numGuests = scan.nextInt();
-			String buffer = scan.nextLine();
-            int newAttendees[] = new int[numGuests];
-
-             String newInfo = "none";
-            for(int i = 1, i < numGuests + 1, i++)
-            {
-                System.out.println("What info would you like to add about guest "+ i +"?");
-                newInfo = scan.nextLine();
-                newAttendees[i-1] = newInfo;
-            }
+            numNewGuests = scan.nextInt();
+			buffer = scan.nextLine();
         }
         else
         {
             System.out.print("Ok, no worries. Your current guests will have a place to sit soon.");
         }
-
+        return numNewGuests;
     }
 }

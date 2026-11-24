@@ -8,7 +8,7 @@ public class Attendee
 {
   public static void main(String[] args) 
   {
-        File myObj1 = new File("companies.csv");
+        File myObj1 = new File("names.csv");
         int numAttendees = 90;
         String[] attendees = attendees[numAttendees];
 
