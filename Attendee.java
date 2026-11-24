@@ -1,37 +1,39 @@
-//Lily Fraser
-//APCSA
-//Attendee.java
+//this is my best attempt at putting all of this in an array because I can't get this repo to appear in my command prompt thing at home. I can get it on vs code and that is what I am using to save and push and pull
 
-public class Attendee
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Attendee 
 {
-    private String name;
-    private int table;
-    private int seatNum;
-    private int company;
+  public static void main(String[] args) 
+  {
+        File myObj1 = new File("companies.csv");
+        int numAttendees = 90;
+        String[] attendees = attendees[numAttendees];
 
-    public Attendee(String inItName, int companyID)
-    {
-        name = inItName;
-        company = companyID;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public int getTable()
-    {
-        return table;
-    }
-
-    public int getSeatNum()
-    {
-        return seatNum;
-    }
-
-    public int getCompany()
-    {
-        return company;
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(myObj1)) 
+        {
+            while (myReader.hasNextLine()) 
+            {     
+                for(int i = 1, i < 91, i++)
+                {
+                    String data = myReader.nextLine();
+                    System.out.println(data);
+                    attendees[i] = data;
+                }   
+            } 
+        }
+        catch (FileNotFoundException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        for(int j = 0, j < 91, j++)
+        {
+            System.out.print(attendees[j]);
+        }
     }
 }
+
