@@ -7,16 +7,21 @@ public class ReadFile
   public static void main(String[] args) 
   {
         File myObj1 = new File("companies.csv");
+        int numCompanies = 16;
+        String[] companies = companies[16];
 
         // try-with-resources: Scanner will be closed automatically
         try (Scanner myReader = new Scanner(myObj1)) 
         {
             while (myReader.hasNextLine()) 
             {     
-            String data = myReader.nextLine();
-            System.out.println(data);
-            }
-        } 
+                for(int i = 1, i < 17, i++)
+                {
+                    String data = myReader.nextLine();
+                    System.out.println(data);
+                    companies[i] = data;
+                }   
+            } 
 
         catch (FileNotFoundException e) 
         {
